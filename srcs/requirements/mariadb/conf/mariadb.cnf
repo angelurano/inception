@@ -1,0 +1,17 @@
+[mysqld]
+
+# Listen on all Docker network interfaces
+bind-address = 0.0.0.0
+
+# Std user and port
+user = mysql
+port = 3306
+
+datadir = /var/lib/mysql
+
+# Files from /run/mysqld are created when the container is started
+pid-file = /run/mysqld/mysqld.pid
+socket = /run/mysqld/mysqld.sock
+
+# Remove reverse DNS lookup to speed up connections
+skip-name-resolve
