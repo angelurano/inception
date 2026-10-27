@@ -12,6 +12,20 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - inception
+  wordpress:
+    build: ./requirements/wordpress
+    image: wordpress
+    container_name: wordpress
+    env_file: .env
+    restart: always
+    secrets:
+      - db_password
+    volumes:
+      - wp_data:/var/www/wordpress
+    depends_on: 
+      - mariadb
+    networks: 
+      - inception
 
 secrets:
   db_password:
@@ -26,7 +40,14 @@ volumes:
       type: none
       o: bind
       device: ${DATA_PATH:-/home/migugar2/data}/mariadb
+  wp_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${DATA_PATH:-/home/migugar2/data}/wordpress
 
 networks:
   inception:
     driver: bridge
+
