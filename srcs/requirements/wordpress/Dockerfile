@@ -19,6 +19,7 @@ RUN apk add --no-cache \
     php83-iconv \
     mariadb-client \
     curl && \
+    sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php83/php.ini && \
     ln -s /usr/bin/php83 /usr/bin/php && \
     curl -sS -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x /usr/local/bin/wp && \

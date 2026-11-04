@@ -6,7 +6,7 @@ DATA_PATH ?= /home/migugar2/data
 all: up
 
 build:
-	@mkdir -p $(DATA_PATH)/mariadb
+	@mkdir -p $(DATA_PATH)/mariadb $(DATA_PATH)/wordpress
 	$(DOCKER_COMPOSE) build
 
 up: build
