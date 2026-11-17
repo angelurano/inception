@@ -1,7 +1,8 @@
 NAME := inception
 DOCKER_COMPOSE := docker compose -p $(NAME) -f srcs/docker-compose.yml
 
-DATA_PATH ?= /home/migugar2/data 
+DATA_PATH ?= /home/migugar2/data
+export DATA_PATH
 
 all: up
 

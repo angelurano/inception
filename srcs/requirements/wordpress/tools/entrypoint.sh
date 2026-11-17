@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-DB_PASSWORD=$(tr -d '\r' < /run/secrets/db_password)
-WP_ADMIN_PASSWORD=$(tr -d '\r' < /run/secrets/wp_admin_password)
-WP_USER_PASSWORD=$(tr -d '\r' < /run/secrets/wp_user_password)
+DB_PASSWORD=$(tr -d '\r\n' < /run/secrets/db_password)
+WP_ADMIN_PASSWORD=$(tr -d '\r\n' < /run/secrets/wp_admin_password)
+WP_USER_PASSWORD=$(tr -d '\r\n' < /run/secrets/wp_user_password)
 
 echo "Waiting for database connection..."
 while ! mariadb-admin ping -h mariadb -u "${MYSQL_USER}" --password="${DB_PASSWORD}" > /dev/null 2>&1; do

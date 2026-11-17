@@ -10,6 +10,8 @@ fi
 DB_PASSWORD=$(tr -d '\r\n' < /run/secrets/db_password)
 DB_ROOT_PASSWORD=$(tr -d '\r\n' < /run/secrets/db_root_password)
 
+chown -R mysql:mysql /var/lib/mysql
+
 if [ ! -d "/var/lib/mysql/mysql" ]; then
   echo "Initializing MariaDB data directory..."
   mariadb-install-db --user=mysql --datadir=/var/lib/mysql --skip-test-db > /dev/null 2>&1
