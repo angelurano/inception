@@ -15,3 +15,4 @@ socket = /run/mysqld/mysqld.sock
 
 # Remove reverse DNS lookup to speed up connections
 skip-name-resolve
+

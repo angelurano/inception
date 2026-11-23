@@ -17,3 +17,4 @@ down:
 	$(DOCKER_COMPOSE) down
 
 .PHONY: all build up down
+

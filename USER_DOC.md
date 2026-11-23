@@ -74,3 +74,4 @@ Passwords are never stored in Git or image definitions. Credentials are split be
   curl -skI https://migugar2.42.fr --resolve migugar2.42.fr:443:127.0.0.1
   ```
   You should receive `HTTP/1.1 200 OK`.
+
